@@ -4,11 +4,11 @@ include 'init.php';
 
 
 // Insert TEst
-$param = array("tata","67","906767");
-Insertion::save("User",$param);
+$param = array("hama","67","906767");
+Insertion::save("user",$param);
 
 
-// Update::findoneAndUpdate();
+// Update::updateByID();
 
 
 

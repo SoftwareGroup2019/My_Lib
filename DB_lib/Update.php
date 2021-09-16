@@ -4,7 +4,7 @@ class Update
 {
     
     //$table, $args, $id
-    public static function findoneAndUpdate()
+    public static function updateByID()
     {
        
 

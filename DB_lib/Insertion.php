@@ -20,9 +20,11 @@
  );
 
  // then Call your static function and pass the Table Name with lower case and your array
- Insertion::save("User",$param);
+ Insertion::save("user",$param);
  
 */
+
+// Thats all, its so easy Yes!!! //
 
 class Insertion
 { // start of class
@@ -31,7 +33,7 @@ class Insertion
     { // Start of func
         global $db;
 
-        $Col_Names = TabInfo::get_col_names("user");
+        $Col_Names = TabInfo::get_col_names($table);
         for ($i = 1; $i < count($Col_Names); $i++) {
             $non_id_col[] = $Col_Names[$i]; 
         }
