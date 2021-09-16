@@ -3,12 +3,12 @@
 include 'init.php';
 
 
-// // Insert 
-// $param = array("opp","67");
+// Insert 
+// $param = array("zname"=>"kaka","zage"=>"90","zMobile"=>"90909090");
 // Insertion::save("User",$param);
-// /////////////////////////////////
 
 
+// Update::findoneAndUpdate();
 
 
 
