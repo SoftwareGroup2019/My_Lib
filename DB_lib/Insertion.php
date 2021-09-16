@@ -2,67 +2,57 @@
 
 ///////////////////////////////////////////////
 ///                                         ///
-///      Mohammed K. Haider @version1.0     ///
+///      Author => Mohammed K. Haider       ///
+///      Query_Type => Insert               ///
 ///                                         ///         
 ///////////////////////////////////////////////
 
-class Insertion
-{
+// How to Use //
 
-   // Insert on Record
+/*
+    // create an array and pass the data {POST,GET, or any kind of data}
+ $X = array(
+     $_POST['Name'],
+     $_POSt['Age'],
+     .
+     .
+     ....
+ );
+
+ // then Call your static function and pass the Table Name with lower case and your array
+ Insertion::save("User",$param);
+ 
+*/
+
+class Insertion
+{ // start of class
+    
     public static function save($table, $args)
-    {
+    { // Start of func
         global $db;
 
         $Col_Names = TabInfo::get_col_names("user");
         for ($i = 1; $i < count($Col_Names); $i++) {
-            $non_id_col[] = $Col_Names[$i];
-            
+            $non_id_col[] = $Col_Names[$i]; 
         }
         $col = implode(",",$non_id_col);
 
-        foreach ($args as $key => $value) {
-            $col_bind[] = $key;
-        }
+        $var_bind = ":z".implode(",:z",$non_id_col)."";
 
-        $data = ":".implode(",:",$col_bind)."";
+        $bind_param = array();
+        for ($i = 0; $i < count($non_id_col); $i++) {
+           $z_bind = "z" . $non_id_col[$i];
+           $bind_param[$z_bind] = $args[$i];
+        }
         
         $sql = $db->prepare("INSERT INTO $table ($col)
-        VALUES ($data)");
-        // use exec() because no results are returned
-      
-        $sql->execute($args);
-            echo "New record created successfully" . "<br>";
+        VALUES ($var_bind)");
+    
+        $sql->execute($bind_param);
+
+        echo "New record created successfully" . "<br>";
         
 
           $db = null;
-    }
-
-    // get the last inserted id in DB
-    public static function get_last_id()
-    {
-
-    }
-
-    // Insert Multi Record to DB
-    public static function multi_save()
-    {
-        /*
-         // begin the transaction
-        $conn->beginTransaction();
-        // our SQL statements
-        $conn->exec("INSERT INTO MyGuests (firstname, lastname, email)
-        VALUES ('John', 'Doe', 'john@example.com')");
-        $conn->exec("INSERT INTO MyGuests (firstname, lastname, email)
-        VALUES ('Mary', 'Moe', 'mary@example.com')");
-        $conn->exec("INSERT INTO MyGuests (firstname, lastname, email)
-        VALUES ('Julie', 'Dooley', 'julie@example.com')");
-
-        // commit the transaction
-        $conn->commit();
-        echo "New records created successfully";
-        */
-    }
-
-
-}
+    } // end of func
+}// end of Class 
