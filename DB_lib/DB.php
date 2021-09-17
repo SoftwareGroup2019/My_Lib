@@ -29,7 +29,6 @@ class DB
         $sql = $db->prepare("INSERT INTO $table ($col)
         VALUES ($var_bind)");
         $sql->execute($bind_param);
-        echo "New record created successfully" . "<br>";
           $db = null;
     } // end of save func
     //////////////////////////////////////////////////////////////////

@@ -3,7 +3,7 @@
 include 'init.php';
 
 
-// Insert TEst
+//Insert TEst
 // $param = array("joma","67","906767");
 // DB::save("user",$param);
 
@@ -19,12 +19,12 @@ include 'init.php';
 
 
 
-$rows = DB::selectByID("user","22");
-foreach ($rows as $key => $value) {
+// $rows = DB::selectByID("user","22");
+// foreach ($rows as $key => $value) {
             
-    echo $value['Age'] . "<br>";
+//     echo $value['Age'] . "<br>";
 
- }
+//  }
 
 
 

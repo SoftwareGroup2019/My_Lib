@@ -1,0 +1,80 @@
+////  How to Use DB Lib ////
+
+
+1- Insert:
+
+for adding data to database, call the (save) function from (DB) class:
+
+DB::save(tabel_name, array of your inputs)
+
+example://
+$param = array("Name","Age","Mobile");
+DB::save("user",$param);
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+
+2- Select: 
+ 
+ a. to select all data in database, call the (selectAll) function from DB class, which return an array:
+
+ $rows = DB::selectAll(tabel_name); you can read your array by foreach loop to get all your data
+
+example:// 
+$rows = DB::selectAll("user");
+foreach ($rows as $key => $value) {
+
+   echo $value['Name'] . "<br>";         
+   echo $value['Age'] . "<br>";
+   echo $value['Mobile'] . "<br>";
+
+}
+
+
+b. you can select specific data in database, by calling (selectByID) function from DB class:
+
+$rows = DB::selectByID(tabel_name, your ID ); your ID should be String
+
+example:// 
+$rows = DB::selectByID("user","23");
+foreach ($rows as $key => $value) {
+
+   echo $value['Name'] . "<br>";         
+   echo $value['Age'] . "<br>";
+   echo $value['Mobile'] . "<br>";
+
+}
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+
+3- Update:
+
+to update your data from database, call the (UpdateByID) function from (DB) class:
+
+DB::updateByID(tabel_name, array of updated data, your ID); // your ID should String
+
+example://
+$param = array("naw","taman","Phone");
+$id = "23";
+DB::updateByID("user",$param,$id);
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+4- Delete:
+
+to Delete, call (deleteByID) function from (DB) class:
+
+DB::deleteByID(tabel_name, your ID); // your should be String
+
+example://
+DB::deleteByID("user","23"); // this wiil remove the entire row in database
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+
+
